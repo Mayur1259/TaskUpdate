@@ -1,0 +1,189 @@
+17/11/2023 -
+
+Hackerrank Problems -
+
+1) Java Substring -
+Problem link - https://www.hackerrank.com/challenges/java-substring/problem?isFullScreen=true
+
+Sol)
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String S = in.next();
+        int start = in.nextInt();
+        int end = in.nextInt();
+        System.out.println(S.substring(start,end));
+    }
+}
+
+2) Java Inheritance I -
+Problem link - https://www.hackerrank.com/challenges/java-inheritance-1/problem?isFullScreen=true
+
+Sol)
+import java.io.*;
+import java.util.*;
+
+class Animal{
+    void walk(){
+        System.out.println("I am walking");
+    }
+}
+
+class Bird extends Animal {
+    void fly() {
+        System.out.println("I am flying");
+    }
+    
+    void sing() {
+        System.out.println("I am singing");
+    }
+    
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Bird bird = new Bird();
+        bird.walk();
+        bird.fly();
+        bird.sing();
+    }
+}
+
+3) Java Inheritance II -
+Problem link - https://www.hackerrank.com/challenges/java-inheritance-2/problem?isFullScreen=true
+
+Sol)
+import java.io.*;
+import java.util.*;
+
+class Arithmetic {
+    public int add(int a, int b){
+        return a + b;
+    }
+}
+
+class Adder extends Arithmetic {
+    
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+      
+        
+        Adder a = new Adder();
+        
+        System.out.println("My superclass is: " + a.getClass().getSuperclass().getName());    
+        
+        System.out.print(a.add(10,32) + " " + a.add(10,3) + " " + a.add(10,10) + "\n");
+        
+    }
+}
+
+4) Java Method Overriding -
+Problem link - https://www.hackerrank.com/challenges/java-method-overriding/problem?isFullScreen=true
+
+Sol)
+import java.util.*;
+class Sports{
+
+    String getName(){
+        return "Generic Sports";
+    }
+  
+    void getNumberOfTeamMembers(){
+        System.out.println( "Each team has n players in " + getName() );
+    }
+}
+
+class Soccer extends Sports{
+    @Override
+    String getName(){
+        return "Soccer Class";
+    }
+
+    void getNumberOfTeamMembers(){
+        System.out.println( "Each team has 11 players in " + getName() );
+    }
+
+}
+
+5) Java Method Overriding 2 (Super Keyword) -
+Problem link - https://www.hackerrank.com/challenges/java-method-overriding-2-super-keyword/problem?isFullScreen=true
+
+Sol)
+import java.util.*;
+import java.io.*;
+
+class BiCycle{
+	String define_me(){
+		return "a vehicle with pedals.";
+	}
+}
+
+class MotorCycle extends BiCycle{
+	String define_me(){
+		return "a cycle with an engine.";
+	}
+	
+	MotorCycle(){
+		System.out.println("Hello I am a motorcycle, I am "+ define_me());
+
+		String temp=super.define_me(); 
+
+		System.out.println("My ancestor is a cycle who is "+ temp );
+	}
+	
+}
+class Solution{
+	public static void main(String []args){
+		MotorCycle M=new MotorCycle();
+	}
+}
+
+
+6) Write a Java program that takes three numbers from the user and prints the greatest number.
+
+Sol)
+import java.util.Scanner;
+
+public class Main {
+
+  public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+   
+  int num1 = sc.nextInt();
+   
+  int num2 = sc.nextInt();
+   
+  int num3 = sc.nextInt();
+   
+   
+  if (num1 > num2){
+   if (num1 > num3){
+    System.out.println(num1 + " is the greatest number");
+   }
+  }
+ 
+  if (num2 > num1){
+   if (num2 > num3){
+    System.out.println(num2 + " is the greatest number");
+   }
+  }
+  
+  if (num3 > num1){
+   if (num3 > num2){
+    System.out.println(num3 + " is the greatest number");
+   }
+  }
+  
+ }
+}

@@ -1,0 +1,213 @@
+20/11/2023 -
+
+w3resource Problems - 
+
+1) Write a Java program to create a class called "Person" with a name and age attribute. Create two instances of the "Person" class, set their attributes using the constructor, and print their name and age.
+
+Ans 1)
+class Person {
+  private int age;
+  private String name;
+  
+  public Person(int age, String name){
+    this.age = age;
+    this.name = name;
+  }
+  
+  public int getAge(){
+    return age;
+  }
+  
+  public String getName(){
+    return name;
+  }
+  
+}
+
+public class Main {
+  public static void main(String[] args) {
+     Person p1 = new Person(14, "ABC");
+     Person p2 = new Person(21, "XYZ");
+     
+     System.out.println(p1.getAge() + " " + p1.getName());
+     System.out.println(p2.getAge() + " " + p2.getName());
+     
+  }
+}
+
+
+2) Write a Java program to create a class called "Dog" with a name and breed attribute. Create two instances of the "Dog" class, set their attributes using the constructor and modify the attributes using the setter methods and print the updated values.
+
+Ans 2)
+class Dog {
+  private String name;
+  private String breed;
+  
+  public Dog(String name, String breed){
+    this.name = name;
+    this.breed = breed;
+  }
+  
+  public String getName(){
+    return name;
+  }
+  
+  public String getBreed(){
+    return breed;
+  }
+  
+  public void setName(String name){
+    this.name = name;
+  }
+  
+  public void setBreed(String breed){
+    this.breed = breed;
+  }
+  
+}
+
+public class Main {
+  public static void main(String args[]){
+    Dog d1 = new Dog("Captain", "Labradore");
+    Dog d2 = new Dog("Shiny", "BullDog");
+    
+    d1.setName("Danger");
+    d2.setBreed("German Shepherd");
+    
+    System.out.println(d1.getName() + " " + d1.getBreed());
+    System.out.println(d2.getName() + " " + d2.getBreed());
+    
+  }
+}
+
+
+3) Write a Java program to create a class called "Rectangle" with width and height attributes. Calculate the area and perimeter of the rectangle.
+
+Ans 3)
+class Rectangle {
+  private double width;
+  private double height;
+  
+  public double perimeter(double width, double height){
+    return (2*(width + height));
+  }
+  
+  public double area(double width, double height){
+    return (width * height);
+  }
+  
+}
+
+public class Main {
+  public static void main(String args[]){
+     Rectangle r = new Rectangle();
+     double p = r.perimeter(2.50,2.50);
+     double a = r.area(2.50,2.50);
+     
+     System.out.println("Perimeter : " + p + " Area : " + a);
+     
+  }
+}
+
+
+4) Write a Java program to create a class called "Employee" with a name, job title, and salary attributes, and methods to calculate and update salary.
+
+class Employee {
+  public String name;
+  public String jobTitle;
+  public double salary;
+
+  public Employee(String name, String jobTitle, double salary) {
+    this.name = name;
+    this.jobTitle = jobTitle;
+    this.salary = salary;
+  }
+
+  public void salaryIncrement(double increment) {
+    salary = salary + (salary * increment/ 100);
+  }
+
+  public void employeeDetails(){
+     System.out.println("Name : " + name);
+     System.out.println("JobTitle : " + jobTitle);
+     System.out.println("Salary : " + salary);
+  }
+
+}
+
+class HelloWorld {
+    public static void main(String[] args) {
+      Employee e1 = new Employee("ABC", "SDE", 60000);
+      Employee e2 = new Employee("XYZ", "BA", 50000);
+    
+      e1.employeeDetails();
+      e1.salaryIncrement(10);
+      System.out.println("Updated Salary");
+      e1.employeeDetails();
+      
+      
+      
+      e2.employeeDetails();
+      e2.salaryIncrement(15);
+      System.out.println("Updated Salary");
+      e2.employeeDetails();
+     
+    }
+}
+
+
+5) Write a Java program to create class called "TrafficLight" with attributes for color and duration, and methods to change the color and check for red or green.
+Ans 5)
+class Light {
+  private String color;
+  private int duration;
+
+  public Light(String color, int duration) {
+    this.color = color;
+    this.duration = duration;
+  }
+
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  public int getDuration() {
+    return duration;
+  }
+
+  public void setDuration(int duration) {
+    this.duration = duration;
+  }
+
+  public void changeColor(String updatedColor) {
+    color = updatedColor;
+  }
+
+  public boolean checkForRed() {
+    return color.equals("red");
+  }
+
+  public boolean checkForGreen() {
+    return color.equals("green");
+  }
+
+}
+
+class Main {
+    public static void main(String[] args) {
+        Light l = new Light("green", 15);
+
+     System.out.println("Check for Red :" + l.checkForRed());
+     System.out.println("Check for Green : " + l.checkForGreen());
+
+     System.out.println("After changing color : ");
+     l.changeColor("red");
+
+     System.out.println("Check for Red :" + l.checkForRed());
+     System.out.println("Check for Green : " + l.checkForGreen());
+    }
+}
