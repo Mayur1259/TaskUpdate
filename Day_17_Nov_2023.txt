@@ -1,0 +1,144 @@
+17/11/2023 -
+
+Hackerrank Problems -
+
+1) Java Substring -
+Sol)
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String S = in.next();
+        int start = in.nextInt();
+        int end = in.nextInt();
+        System.out.println(S.substring(start,end));
+    }
+}
+
+2) Java Inheritance I -
+
+Sol)
+import java.io.*;
+import java.util.*;
+
+class Animal{
+    void walk(){
+        System.out.println("I am walking");
+    }
+}
+
+class Bird extends Animal {
+    void fly() {
+        System.out.println("I am flying");
+    }
+    
+    void sing() {
+        System.out.println("I am singing");
+    }
+    
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Bird bird = new Bird();
+        bird.walk();
+        bird.fly();
+        bird.sing();
+    }
+}
+
+3) Java Inheritance II -
+
+Sol)
+import java.io.*;
+import java.util.*;
+
+class Arithmetic {
+    public int add(int a, int b){
+        return a + b;
+    }
+}
+
+class Adder extends Arithmetic {
+    
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+      
+        
+        Adder a = new Adder();
+        
+        System.out.println("My superclass is: " + a.getClass().getSuperclass().getName());    
+        
+        System.out.print(a.add(10,32) + " " + a.add(10,3) + " " + a.add(10,10) + "\n");
+        
+    }
+}
+
+4) Java Method Overriding -
+
+Sol)
+import java.util.*;
+class Sports{
+
+    String getName(){
+        return "Generic Sports";
+    }
+  
+    void getNumberOfTeamMembers(){
+        System.out.println( "Each team has n players in " + getName() );
+    }
+}
+
+class Soccer extends Sports{
+    @Override
+    String getName(){
+        return "Soccer Class";
+    }
+
+    void getNumberOfTeamMembers(){
+        System.out.println( "Each team has 11 players in " + getName() );
+    }
+
+}
+
+5) Java Method Overriding 2 (Super Keyword) -
+
+Sol)
+import java.util.*;
+import java.io.*;
+
+class BiCycle{
+	String define_me(){
+		return "a vehicle with pedals.";
+	}
+}
+
+class MotorCycle extends BiCycle{
+	String define_me(){
+		return "a cycle with an engine.";
+	}
+	
+	MotorCycle(){
+		System.out.println("Hello I am a motorcycle, I am "+ define_me());
+
+		String temp=super.define_me(); 
+
+		System.out.println("My ancestor is a cycle who is "+ temp );
+	}
+	
+}
+class Solution{
+	public static void main(String []args){
+		MotorCycle M=new MotorCycle();
+	}
+}
