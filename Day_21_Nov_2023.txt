@@ -1,0 +1,196 @@
+21/11/2023 -
+w3 resource -
+
+1) Write a Java program to create a class called Animal with a method called makeSound(). Create a subclass called Cat that overrides the makeSound() method to bark.
+Ans 6)
+
+class Animal {
+    public void makeSound() {
+        System.out.println("Makes Sound");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound(){
+        System.out.println("Barks");
+    }
+}
+
+
+
+class HelloWorld {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        Cat c = new Cat();
+        a.makeSound();
+        c.makeSound();
+    }
+}
+
+
+2) Write a Java program to create a class called Shape with a method called getArea(). Create a subclass called Rectangle that overrides the getArea() method to calculate the area of a rectangle.
+
+Ans 7)
+class Shape {
+    public double getArea() {
+        return 0.0;
+    }
+} 
+
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+    
+    public Rectangle(double l, double w) {
+        length = l;
+        width = w;
+    }
+  
+    public double getArea() {
+        return length * width;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Rectangle r = new Rectangle(4.0, 5.0);
+        double a = r.getArea();
+        System.out.println("Rectangle Area : " + a);
+    }
+}
+
+3) Write a Java program to create a class called Shape with methods called getPerimeter() and getArea(). Create a subclass called Circle that overrides the getPerimeter() and getArea() methods to calculate the area and perimeter of a circle.
+Ans 8) 
+class Shape {
+    public double getPerimeter() {
+        return 0.0;
+    }
+
+    public double getArea() {
+        return 0.0;
+    }
+}
+
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getPerimeter() {
+        return (2 * Math.PI * radius);
+    }
+
+    public double getArea() {
+        return Math.PI*Math.pow(radius, 2);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        double r = 1.0;
+        Circle c = new Circle(r);
+        System.out.println("Radius : " + r);
+        System.out.println("Perimeter : " + c.getPerimeter());
+        System.out.println("Area : " + c.getArea());
+        
+    }
+}
+
+4) Write a Java program to create an abstract class Animal with an abstract method called sound(). Create subclasses Lion and Tiger that extend the Animal class and implement the sound() method to make a specific sound for each animal.
+
+Sol)
+abstract class Animal {
+    public abstract void sound();
+}
+
+class Lion extends Animal {
+    public void sound() {
+        System.out.println("Roars");
+    }
+}
+
+class Tiger extends Animal {
+    public void sound() {
+        System.out.println("Grunts");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Lion l = new Lion();
+        l.sound();
+        
+        Tiger t = new Tiger();
+        t.sound();
+        
+    }
+}
+
+Hackerrank -
+5) Java Static Initializer Block
+
+Sol)
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+  static int B,H;
+  static boolean flag;
+  
+  static {
+        Scanner scanner = new Scanner(System.in);
+        B = scanner.nextInt();
+        H = scanner.nextInt();
+        scanner.close();
+
+        if (B > 0 && H > 0) {
+            flag = true;
+        } else {
+            System.out.println("java.lang.Exception: Breadth and height must be positive");
+        }
+    }
+  
+
+public static void main(String[] args){
+		if(flag){
+			int area=B*H;
+			System.out.print(area);
+		}	
+	}
+}
+
+
+6) Java Loops II -
+
+Sol)
+import java.util.*;
+import java.io.*;
+
+class Solution{
+    public static void main(String []argh){
+        Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        for(int i=0;i<t;i++){
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+            
+            for(int j = 0;j<n;j++){
+            a = a + b;
+            System.out.print(a + " ");
+            b = b * 2;
+        }
+        System.out.println();  
+        }
+        in.close();
+        
+    }
+}

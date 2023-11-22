@@ -1,0 +1,163 @@
+16/11/2023 -
+Hackerrank Problems -
+1) Java Stdin and Stdout I  
+
+Sol)
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        int c = scan.nextInt();
+        
+        scan.close();
+
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+    
+    }
+}
+
+2) Java If-Else 
+
+Sol)
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int N = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        scanner.close();
+        if (N % 2 == 1)
+           System.out.print("Weird");
+        else if (N % 2 == 0 && N >= 2 && N <= 5) {
+           System.out.print("Not Weird");
+}       else if (N % 2 == 0 && N >= 6 && N <= 20) {
+           System.out.print("Weird");
+}
+        else if (N % 2 == 0 && N > 20) {
+           System.out.print("Not Weird");
+}
+
+3) Java Stdin and Stdout II -
+
+Sol)
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int i = scan.nextInt();
+        scan.nextLine();
+        double d = scan.nextDouble();
+        scan.nextLine();
+        String s = scan.nextLine();
+        // Write your code here.
+
+        System.out.println("String: " + s);
+        System.out.println("Double: " + d);
+        System.out.println("Int: " + i);
+    }
+}
+
+4) Java Loops I -
+Sol)
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(bufferedReader.readLine().trim());
+        for(int i = 1;i<11;i++){
+            System.out.println(N + " x " + i + " = " + (N*i));
+        }
+        bufferedReader.close();
+    }
+}
+
+5) Java Strings Introduction -
+Sol)
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String B=sc.next();
+        /* Enter your code here. Print output to STDOUT. */
+        int a = A.length();
+        int b = B.length();
+        
+        System.out.println(a + b);
+        
+        int ans = A.compareTo(B);
+        
+        if(ans <= 0){
+            System.out.println("No");
+        } else {
+            System.out.println("Yes");
+        }
+        
+        A = A.substring(0, 1).toUpperCase() + A.substring(1);
+        B = B.substring(0, 1).toUpperCase() + B.substring(1);
+        
+        System.out.print(A + " " + B);
+        
+    }
+}
+
+6) Java Int to String -
+
+Sol)
+import java.util.*;
+import java.security.*;
+public class Solution {
+ public static void main(String[] args) {
+
+  DoNotTerminate.forbidExit();
+
+  try {
+   Scanner in = new Scanner(System.in);
+   int n = in .nextInt();
+   in.close();
+   
+   String s = String.valueOf(n);
+   
+   if (n == Integer.parseInt(s)) {
+    System.out.println("Good job");
+   } else {
+    System.out.println("Wrong answer.");
+   }
+  } catch (DoNotTerminate.ExitTrappedException e) {
+   System.out.println("Unsuccessful Termination!!");
+  }
+ }
+}
+
