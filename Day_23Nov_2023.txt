@@ -1,0 +1,360 @@
+23/11/2023 -
+
+1)
+Problem link - https://www.hackerrank.com/challenges/java-abstract-class/problem?isFullScreen=true
+
+Sol)
+import java.util.*;
+abstract class Book{
+	String title;
+	abstract void setTitle(String s);
+	String getTitle(){
+		return title;
+	}
+}
+
+
+class MyBook extends Book {
+    public void setTitle(String s){
+        this.title = s;
+    }
+    
+}
+
+public class Main{
+	
+	public static void main(String []args){
+		Scanner sc=new Scanner(System.in);
+		String title=sc.nextLine();
+		MyBook new_novel=new MyBook();
+		new_novel.setTitle(title);
+		System.out.println("The title is: "+new_novel.getTitle());
+      	sc.close();
+		
+	}
+}
+
+
+2) Java Interface
+Problem link - https://www.hackerrank.com/challenges/java-interface/problem?isFullScreen=true
+
+Sol)
+import java.util.*;
+
+interface AdvancedArithmetic{
+  int divisor_sum(int n);
+}
+
+class MyCalculator implements AdvancedArithmetic{
+    public int divisor_sum(int n){
+        int sum = 0;
+        for(int i = 1;i<=n;i++){
+            if(n % i == 0){
+                sum = sum + i;
+            }
+        }
+        
+        return sum;
+        
+    }
+}
+
+class Solution{
+    public static void main(String []args){
+        MyCalculator my_calculator = new MyCalculator();
+        System.out.print("I implemented: ");
+        ImplementedInterfaceNames(my_calculator);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.print(my_calculator.divisor_sum(n) + "\n");
+      	sc.close();
+    }
+    
+}
+
+
+3) Java List
+Problem link - https://www.hackerrank.com/challenges/java-list/problem?isFullScreen=true
+
+Sol)
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        List<Integer> num = new ArrayList<>();
+        
+        for(int i = 0;i<n;i++){
+            num.add(sc.nextInt());
+        }
+        
+        int q = sc.nextInt();
+        for(int i = 0;i<q;i++){
+            String s = sc.next();
+            if(s.equals("Insert")){
+                int ind = sc.nextInt();
+                int data = sc.nextInt();
+                num.add(ind, data);
+            } else {
+                int ind = sc.nextInt();
+                num.remove(ind);
+            }
+        }
+        
+        for(int a : num){
+            System.out.print(a + " ");
+        }
+        
+    }
+}
+
+
+4) Java Map 
+Problem link - https://www.hackerrank.com/challenges/phone-book/problem?isFullScreen=true
+
+Sol)
+import java.util.*;
+import java.io.*;
+
+class Solution{
+	public static void main(String []argh)
+	{
+		Scanner in = new Scanner(System.in);
+		int n=in.nextInt();
+		in.nextLine();
+        
+        Map<String, Integer> m = new HashMap<>();
+        
+		for(int i=0;i<n;i++)
+		{
+			String name=in.nextLine();
+			int phone=in.nextInt();
+            m.put(name, phone);
+            
+			in.nextLine();
+		}
+		while(in.hasNext())
+		{
+			String s=in.nextLine();
+            if(m.containsKey(s)){
+                System.out.println(s+"="+m.get(s));
+            } else {
+                System.out.println("Not found");
+            }
+            
+		}
+	}
+}
+
+
+5) Java ArrayList
+Problem link - https://www.hackerrank.com/challenges/java-arraylist/problem?isFullScreen=true
+
+Sol)
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        List<ArrayList<Integer>> lst = new ArrayList<>();
+        
+        for(int i = 0;i<n;i++){
+            int inner = sc.nextInt();
+            ArrayList<Integer> ar = new ArrayList<>();
+            
+            for(int j = 0;j<inner;j++){
+                int s = sc.nextInt();
+                ar.add(s);
+                
+            }
+            
+            lst.add(ar);
+            
+        }
+        
+        int nxtN = sc.nextInt();
+        for(int j = 0;j<nxtN;j++){
+           int x = sc.nextInt();
+           int y = sc.nextInt();
+           
+           try
+           {
+               System.out.println(lst.get(x-1).get(y-1));
+           }
+           catch(Exception e){
+               System.out.println("ERROR!");
+           }
+                
+        }
+        
+    }
+}
+
+
+
+6) Java HashSet 
+Problem link - https://www.hackerrank.com/challenges/java-hashset/problem?isFullScreen=true
+
+Sol)
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+ public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+        String [] pair_left = new String[t];
+        String [] pair_right = new String[t];
+        
+        for (int i = 0; i < t; i++) {
+            pair_left[i] = s.next();
+            pair_right[i] = s.next();
+        }
+         
+        Set<String> st = new HashSet<>(); 
+        for (int i = 0; i < t; i++) {
+            st.add(pair_left[i] + " " + pair_right[i]);
+            System.out.println(st.size());
+        }
+
+    }
+}
+
+
+7) Java Subarray
+Problem link - https://www.hackerrank.com/challenges/java-negative-subarray/problem?isFullScreen=true
+
+Sol)
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        List<Integer> ar = new ArrayList<>();
+        for(int i = 0;i<n;i++){
+            int m = sc.nextInt();
+            ar.add(m);
+        }
+        
+        int sum = 0;
+        int val = 0;
+        for(int i = 0;i<n;i++){
+            for(int j = i; j<n;j++){
+             sum = sum + ar.get(j);
+             if(sum < 0){
+                val++;
+             }
+            }
+            sum = 0;
+        }
+        System.out.println(val);
+    }
+}
+
+8) Java Comparator -
+Problem link - https://www.hackerrank.com/challenges/java-comparator/problem?isFullScreen=true
+
+Sol)
+import java.util.*;
+
+class Checker implements Comparator<Player> {
+    public int compare(Player p1, Player p2){
+        String n1 = p1.name;
+        String n2 = p2.name;
+        
+        int s1 = p1.score;
+        int s2 = p2.score;
+        
+        if(s1 < s2)
+          return 1;
+        else if(s1 > s2)
+          return -1;
+        else
+          return n1.compareTo(n2);
+        
+    }
+}
+
+class Player{
+    String name;
+    int score;
+    
+    Player(String name, int score){
+        this.name = name;
+        this.score = score;
+    }
+}
+
+class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+
+        Player[] player = new Player[n];
+        Checker checker = new Checker();
+        
+        for(int i = 0; i < n; i++){
+            player[i] = new Player(scan.next(), scan.nextInt());
+        }
+        scan.close();
+     
+        Arrays.sort(player, checker);
+        for(int i = 0; i < player.length; i++){
+            System.out.printf("%s %s\n", player[i].name, player[i].score);
+        }
+    }
+}
+
+
+9) Majority Element
+Problem link - https://leetcode.com/problems/majority-element/description/
+
+Sol)
+class Solution {
+    public int majorityElement(int[] nums) {
+        int n = nums.length;
+
+        int ans = nums[0];
+        int count = 1;
+       
+        for(int i = 1; i<n; i++){
+            if(nums[i] == ans){
+                count++;
+            } else {
+                count--;
+                if(count == 0){
+                   ans = nums[i];
+                   count = 1; 
+                }
+            }
+        }
+
+        return ans;
+
+    }
+}
+
