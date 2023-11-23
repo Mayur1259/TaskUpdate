@@ -1,0 +1,283 @@
+1) Write a Java program that throws an exception and catch it using a try-catch block.
+
+Sol) 
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Enter two numbers for division : ");
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        
+        try
+        {
+           double res = a/b;    
+           System.out.println(res);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Exception Occurs : " + e);
+        }
+        
+    }
+}
+
+
+
+2) Write a Java program to create a method that takes an integer as a parameter and throws an exception if the number is odd.
+
+Sol)
+import java.util.Scanner;
+
+class OddException extends Exception {
+    public OddException(String s){
+        super(s);
+    }
+}
+
+class HelloWorld {
+    
+    public static void checkEvenOrOdd(int n) throws OddException {
+        if(n % 2 != 0){
+            throw new OddException("Throwing Exception due to odd number : " + n);
+        }
+        
+        System.out.println("Even Number : " + n);
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        try
+        {
+           checkEvenOrOdd(n);
+           checkEvenOrOdd(n);
+        } catch (OddException e){
+            System.out.println("Odd Exception : " + e.getMessage());
+        }
+    }
+}
+
+
+3) Java Exception Handling (Try-catch)
+Problem link - https://www.hackerrank.com/challenges/java-exception-handling-try-catch/problem?isFullScreen=true
+
+Sol)
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        
+        try
+        {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            System.out.println(x/y);
+        } 
+        catch(InputMismatchException e){
+            System.out.println(e.getClass().getName());
+        }
+        catch(ArithmeticException e){
+            System.out.println(e.getClass().getName() + ": / by zero");
+        }
+    }
+}
+
+4) Java Exception Handling - 
+Problem link - https://www.hackerrank.com/challenges/java-exception-handling/problem?isFullScreen=true
+
+Sol)
+import java.util.Scanner;
+class MyCalculator {
+    long power(int n, int p) throws Exception {
+        if(n < 0 || p < 0){
+            throw new Exception("n or p should not be negative.");
+        }
+        else if(n == 0 && p == 0){
+            throw new Exception("n and p should not be zero.");
+        } 
+        else {
+            return (long)Math.pow(n,p);
+        }
+    }
+}
+
+public class Solution {
+    public static final MyCalculator my_calculator = new MyCalculator();
+    public static final Scanner in = new Scanner(System.in);
+    
+    public static void main(String[] args) {
+        while (in .hasNextInt()) {
+            int n = in .nextInt();
+            int p = in .nextInt();
+            
+            try {
+                System.out.println(my_calculator.power(n, p));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+
+5) Write a Java program to implement a lambda expression to find the sum of two integers.
+
+Sol)
+import java.util.Scanner;
+
+@FunctionalInterface
+interface SumTwoIntegers {
+    int sum(int a, int b);
+}
+
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        
+        SumTwoIntegers s = (a,b) -> a+b;
+        int res = s.sum(x,y);
+        System.out.println(res);
+    }
+}
+
+
+6) Write a Java program to create a basic Java thread that prints "Hello, World!" when executed.
+
+Sol)
+class Print extends Thread {
+  public void run() {
+    System.out.println("Hello, World!");
+  }
+  public static void main(String[] args) {
+    Print th = new Print();
+    th.start();
+  }
+}
+
+
+7) Remove Duplicates from Sorted Array
+Problem link - https://leetcode.com/problems/remove-duplicates-from-sorted-array/submissions/
+
+Sol)
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[j] != nums[i]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i + 1;
+    }
+}
+
+
+8) Plus One
+Problem link - https://leetcode.com/problems/plus-one/
+
+Sol)
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int n = digits.length;
+        for(int i = n-1;i>=0;i--){
+            if(digits[i] < 9){
+                digits[i]++;
+                return digits;
+            }
+
+            digits[i] = 0;
+
+        }
+
+        int res[] = new int[n+1];
+        res[0] = 1;
+        return res;
+
+    }
+}
+
+
+9) Container With Most Water
+Problem link - https://leetcode.com/problems/container-with-most-water/
+
+Sol)
+class Solution {
+    public int maxArea(int[] height) {
+        int maxWater = 0;
+        int l = 0, r = height.length - 1;
+
+        while(l < r){
+            maxWater = Math.max(maxWater, Math.min(height[l], height[r]) * (r - l));
+
+        if(height[l] > height[r]){
+            r--;
+        } else {
+            l++;
+        }
+
+        }
+       return maxWater;
+    }
+}
+
+
+10) Longest Common Prefix
+Problem link - https://leetcode.com/problems/longest-common-prefix/description/
+
+Sol)
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+
+        Arrays.sort(strs);
+        String s1 = strs[0];
+        String s2 = strs[strs.length - 1];
+
+        int i = 0;
+        while(i < Math.min(s1.length(), s2.length())){
+            if(s1.charAt(i) == s2.charAt(i)){
+                i++;
+            } else {
+                break;
+            }
+        }
+
+        if(i != 0){
+            return s1.substring(0,i);
+        } else {
+            return "";
+        }
+
+    }
+}
+
+
+11) Write a Java program to implement an enum called "Direction" with constants representing the cardinal directions (North, South, East, West).
+
+Sol)
+enum Direction {
+    North, South, East, West;
+  }
+
+public class Main {
+ public static void main(String[] args) {
+     
+    for(Direction d : Direction.values()){
+        System.out.println(d);
+    }
+    
+  }
+}
